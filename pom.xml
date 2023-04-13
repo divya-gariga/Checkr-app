@@ -28,6 +28,7 @@
 			<jacoco.version>0.8.8</jacoco.version>
 		<sonar.organization>ze</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.languages>java</sonar.languages>
 	</properties>
 
 <!--	<modules>-->
