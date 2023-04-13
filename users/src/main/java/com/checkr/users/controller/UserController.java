@@ -41,11 +41,4 @@ public class UserController {
         return userService.sendVerificationCode(email);
     }
 
-//    @GetMapping("/{userId}")
-//    public Optional<User> findByUserId(@PathVariable int userId){
-//        log.trace("request received at getByUserEmail");
-//        System.out.println("request received");
-//        return userService.findByUserId(userId);
-//    }
-
 }
