@@ -13,14 +13,14 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Table(name="User")
 public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private int id;
 
     @Column(name="name")
     private String name;
@@ -36,4 +36,12 @@ public class User {
     @NotNull
     @Column(name = "password")
     private String password;
+
+    public User(int id, String name, String email, String phone, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 }

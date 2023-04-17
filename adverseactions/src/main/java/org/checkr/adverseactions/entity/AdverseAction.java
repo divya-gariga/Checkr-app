@@ -31,7 +31,6 @@ public class AdverseAction {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-
     @Column(name = "prenotice_date")
     private Date prenoticeDate;
 

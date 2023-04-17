@@ -21,32 +21,44 @@
 		<module>adverseactions</module>
 		<module>courtsearches</module>
 	</modules>
-
 	<properties>
 			<java.version>11</java.version>
 			<spring-cloud.version>2021.0.3</spring-cloud.version>
 			<jacoco.version>0.8.8</jacoco.version>
 		<sonar.organization>ze</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>9b0e353e07f44f2938908d96a66df51c5e844764</sonar.login>
+		<sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.languages>java</sonar.languages>
+		<sonar.exclusions>
+			**/src/main/java/**/**/**/exception/**,
+			**/src/main/java/**/**/**/entity/**,
+			**/src/main/java/**/**/**/*Application.java,
+			**/src/main/java/**/**/**/dto/**,
+			**/src/main/java/**/**/**/mapper/**,
+		</sonar.exclusions>
+		<sonar.coverage.exclusions>
+			**/src/main/java/**/**/**/exception/**,
+			**/src/main/java/**/**/**/entity/**,
+			**/src/main/java/**/**/**/dto/**,
+			**/src/main/java/**/**/**/mapper/**,
+		</sonar.coverage.exclusions>
+			<maven.compiler.source>11</maven.compiler.source>
+			<maven.compiler.target>11</maven.compiler.target>
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-<!--	<modules>-->
-<!--		<module>users</module>-->
-<!--		<module>candidates</module>-->
-<!--		<module>reports</module>-->
-<!--		<module>																					</module>-->
-<!--	</modules>-->
 	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -77,11 +89,16 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.14</version>
-			<!--			<version></version>-->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.8</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
@@ -128,8 +145,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
-
 </project>

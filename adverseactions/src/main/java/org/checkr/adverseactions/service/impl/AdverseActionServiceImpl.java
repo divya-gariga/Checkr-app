@@ -18,4 +18,5 @@ public class AdverseActionServiceImpl implements AdverseActionService {
     public List<AdverseAction> getAllAdverseActions() {
         return adverseActionRepository.findAll();
     }
+
 }

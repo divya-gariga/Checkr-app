@@ -22,8 +22,6 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    @ManyToOne
-//    @JoinColumn(name="user_id")
     @NotNull
     @Column(name="user_id")
     private int userId;
@@ -59,6 +57,9 @@ public class Candidate {
     private String driverLicense;
 
     @Column(name = "date")
-    private Date date;
+    private LocalDateTime date;
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

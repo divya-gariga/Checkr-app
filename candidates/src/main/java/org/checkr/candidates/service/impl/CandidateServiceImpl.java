@@ -15,7 +15,6 @@ import java.util.Optional;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-
 @Service
 public class CandidateServiceImpl implements CandidateService {
     @Autowired
@@ -23,6 +22,8 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Autowired
     private Validator validator;
+
+
     @Override
     public Optional<Candidate> updateById(int id, Candidate candidate) {
         Optional<Candidate> result = candidateRepository.findById(id);
@@ -33,7 +34,6 @@ public class CandidateServiceImpl implements CandidateService {
         if(result.isPresent()) {
             LocalDateTime dateTime=LocalDateTime.now();
             candidate.setCreatedAt(dateTime);
-            System.out.println(dateTime);
             candidateRepository.save(candidate);
             return candidateRepository.findById(id);
         }
@@ -60,7 +60,7 @@ public class CandidateServiceImpl implements CandidateService {
             return candidateRepository.findById(id);
         }
         else {
-            throw new CandidateNotfoundException("candidate not found with the given id");
+            throw new CandidateNotfoundException("candidate not found with the given candidate id");
         }
     }
 

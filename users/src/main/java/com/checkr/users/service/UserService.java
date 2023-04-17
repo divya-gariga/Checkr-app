@@ -1,15 +1,13 @@
 package com.checkr.users.service;
 
-import com.checkr.users.entity.User;
-
-import java.util.Optional;
+import com.checkr.users.dto.UserCreationDTO;
+import com.checkr.users.dto.UserDTO;
 
 public interface UserService {
 
-    String registerUser(User user);
-    Optional<User> findByEmail(String email);
+    String registerUser(UserCreationDTO userCreationDTO);
+    UserDTO findByEmail(String email);
     String sendVerificationCode(String email);
-    User updateUser(int userId,User user);
-    Optional<User> findByUserId(int userId);
+    UserCreationDTO updateUser(int userId,UserCreationDTO userCreationDTO);
 
 }
